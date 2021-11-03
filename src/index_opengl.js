@@ -17,7 +17,7 @@ import vtkInteractorStyleTrackballCamera from '@kitware/vtk.js/Interaction/Style
 // ----------------------------------------------------------------------------
 
 const renderWindow = vtkRenderWindow.newInstance();
-const renderer = vtkRenderer.newInstance({ background: [0.2, 0.3, 0.4] });
+const renderer = vtkRenderer.newInstance({ background: [0.0, 0.0, 0.0, 0.0] });
 renderWindow.addRenderer(renderer);
 
 // ----------------------------------------------------------------------------
@@ -44,6 +44,12 @@ renderer.resetCamera();
 // ----------------------------------------------------------------------------
 
 const openglRenderWindow = vtkOpenGLRenderWindow.newInstance();
+//const img = new vtkImage.newInstance();
+const img = new Image();
+img.src = 'https://raw.githubusercontent.com/SciKit-Surgery/scikit-surgery-stats/master/assets/screenshot.png'
+
+openglRenderWindow.setBackgroundImage(img);
+
 renderWindow.addView(openglRenderWindow);
 
 
@@ -51,8 +57,7 @@ renderWindow.addView(openglRenderWindow);
 // Create a div section to put this into
 // ----------------------------------------------------------------------------
 
-const container = document.createElement('div');
-document.querySelector('body').appendChild(container);
+const container = document.getElementById('foreground');
 openglRenderWindow.setContainer(container);
 
 // ----------------------------------------------------------------------------
