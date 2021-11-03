@@ -82,3 +82,18 @@ interactor.bindEvents(container);
 
 interactor.setInteractorStyle(vtkInteractorStyleTrackballCamera.newInstance());
 
+// ----------------------------------------------------------------------------
+// See if we can get video working
+// ----------------------------------------------------------------------------
+
+var video = document.getElementById('videoelement');
+
+if (navigator.mediaDevices.getUserMedia) {
+  navigator.mediaDevices.getUserMedia({ video: true })
+    .then(function (stream) {
+      video.srcObject = stream;
+    })
+    .catch(function (err0r) {
+      console.log("Something went wrong!");
+    });
+}
