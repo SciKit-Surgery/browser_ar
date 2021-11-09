@@ -31,6 +31,7 @@ mapper.setInputConnection(coneSource.getOutputPort());
 
 const actor = vtkActor.newInstance();
 actor.setMapper(mapper);
+actor.getProperty().setOpacity(0.5);
 
 // ----------------------------------------------------------------------------
 // Add the actor to the renderer and set the camera based on it
@@ -44,14 +45,8 @@ renderer.resetCamera();
 // ----------------------------------------------------------------------------
 
 const openglRenderWindow = vtkOpenGLRenderWindow.newInstance();
-//const img = new vtkImage.newInstance();
-const img = new Image();
-img.src = 'https://raw.githubusercontent.com/SciKit-Surgery/scikit-surgery-stats/master/assets/screenshot.png'
-
-openglRenderWindow.setBackgroundImage(img);
 
 renderWindow.addView(openglRenderWindow);
-
 
 // ----------------------------------------------------------------------------
 // Create a div section to put this into
