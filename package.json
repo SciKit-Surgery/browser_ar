@@ -1,7 +1,7 @@
 {
-  "name": "vtk_js_app_webpack",
+  "name": "browser ar",
   "version": "1.0.0",
-  "description": "messing with vtk",
+  "description": "In-browser augmented reality",
   "main": "index.js",
   "scripts": {
     "test": "nyc --reporter=text mocha",
