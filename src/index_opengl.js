@@ -1,17 +1,18 @@
-import '@kitware/vtk.js/favicon';
+import '@kitware/vtk.js/favicon.js';
 
 // Load the rendering pieces we want to use (for both WebGL and WebGPU)
-import '@kitware/vtk.js/Rendering/Profiles/Geometry';
+import '@kitware/vtk.js/Rendering/Profiles/Geometry.js';
 
-import vtkActor from '@kitware/vtk.js/Rendering/Core/Actor';
-import vtkConeSource from '@kitware/vtk.js/Filters/Sources/ConeSource';
-import vtkMapper from '@kitware/vtk.js/Rendering/Core/Mapper';
-import vtkOpenGLRenderWindow from '@kitware/vtk.js/Rendering/OpenGL/RenderWindow';
-import vtkRenderWindow from '@kitware/vtk.js/Rendering/Core/RenderWindow';
-import vtkRenderWindowInteractor from '@kitware/vtk.js/Rendering/Core/RenderWindowInteractor';
-import vtkRenderer from '@kitware/vtk.js/Rendering/Core/Renderer';
-import vtkInteractorStyleTrackballCamera from '@kitware/vtk.js/Interaction/Style/InteractorStyleTrackballCamera';
+import vtkActor from '@kitware/vtk.js/Rendering/Core/Actor.js';
+import vtkConeSource from '@kitware/vtk.js/Filters/Sources/ConeSource.js';
+import vtkMapper from '@kitware/vtk.js/Rendering/Core/Mapper.js';
+import vtkOpenGLRenderWindow from '@kitware/vtk.js/Rendering/OpenGL/RenderWindow.js';
+import vtkRenderWindow from '@kitware/vtk.js/Rendering/Core/RenderWindow.js';
+import vtkRenderWindowInteractor from '@kitware/vtk.js/Rendering/Core/RenderWindowInteractor.js';
+import vtkRenderer from '@kitware/vtk.js/Rendering/Core/Renderer.js';
+import vtkInteractorStyleTrackballCamera from '@kitware/vtk.js/Interaction/Style/InteractorStyleTrackballCamera.js';
 
+import {coneactor} from './sksAnatomy.js'
 // ----------------------------------------------------------------------------
 // Standard rendering code setup
 // ----------------------------------------------------------------------------
@@ -24,14 +25,7 @@ renderWindow.addRenderer(renderer);
 // Simple pipeline ConeSource --> Mapper --> Actor
 // ----------------------------------------------------------------------------
 
-const coneSource = vtkConeSource.newInstance({ height: 1.0 });
-
-const mapper = vtkMapper.newInstance();
-mapper.setInputConnection(coneSource.getOutputPort());
-
-const actor = vtkActor.newInstance();
-actor.setMapper(mapper);
-actor.getProperty().setOpacity(0.5);
+const actor = coneactor();
 
 // ----------------------------------------------------------------------------
 // Add the actor to the renderer and set the camera based on it
