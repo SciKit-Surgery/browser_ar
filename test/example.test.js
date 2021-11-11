@@ -1,6 +1,6 @@
 
-//import assert;
-const assert = require('assert');
+import { assert } from 'chai';
+//const assert = require('assert');
 
 describe('Simple Math Test', () => {
  it('should return 2', () => {

@@ -13,6 +13,7 @@ jobs:
           npm install @kitware/vtk.js
           npm install -D webpack-cli webpack webpack-dev-server
           npm install mocha --save-dev
+          npm install chai --save-dev
           npm install esm --save-dev
           npm install nyc --save-dev
           npm install coveralls --save-dev
