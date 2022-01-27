@@ -1,10 +1,11 @@
 {
-  "name": "vtk_js_app_webpack",
+  "name": "browser_ar",
   "version": "1.0.0",
-  "description": "messing with vtk",
+  "description": "In-browser augmented reality",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "nyc --reporter=html --reporter=text mocha --require esm",
+    "coverage": "nyc report --reporter=text-lcov | coveralls",
     "build": "webpack --progress --mode=development",
     "start": "webpack serve --progress --mode=development --static=dist"
   },
@@ -14,8 +15,13 @@
     "@kitware/vtk.js": "^20.2.3"
   },
   "devDependencies": {
+    "coveralls": "^3.1.1",
+    "esm": "^3.2.25",
+    "mocha": "^9.1.3",
+    "nyc": "^15.1.0",
     "webpack": "^5.60.0",
     "webpack-cli": "^4.9.1",
     "webpack-dev-server": "^4.4.0"
-  }
+  },
+  "type":"module"
 }
