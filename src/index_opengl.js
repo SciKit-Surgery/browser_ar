@@ -50,10 +50,10 @@ const container = document.getElementById('foreground');
 openglRenderWindow.setContainer(container);
 
 // ----------------------------------------------------------------------------
-// Capture size of the container and set it to the renderWindow
+// Capture size of the video window and set it to the renderWindow
 // ----------------------------------------------------------------------------
-
-const { width, height } = container.getBoundingClientRect();
+const video_container = document.getElementById('videoElement');
+const { width, height } = video_container.getBoundingClientRect();
 openglRenderWindow.setSize(width, height);
 
 // ----------------------------------------------------------------------------
