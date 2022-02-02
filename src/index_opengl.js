@@ -75,7 +75,7 @@ interactor.setInteractorStyle(vtkInteractorStyleTrackballCamera.newInstance());
 // See if we can get video working
 // ----------------------------------------------------------------------------
 
-const video = document.getElementById('videoelement');
+const video = document.getElementById('videoElement');
 
 if (navigator.mediaDevices.getUserMedia) {
   navigator.mediaDevices.getUserMedia({ video: true })
