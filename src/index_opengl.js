@@ -13,12 +13,17 @@ import vtkRenderer from '@kitware/vtk.js/Rendering/Core/Renderer.js';
 import vtkInteractorStyleTrackballCamera from '@kitware/vtk.js/Interaction/Style/InteractorStyleTrackballCamera.js';
 
 import {coneactor} from './sksAnatomy.js'
+
+//import {elementResizeDetectorMaker} from 'element-resize-detector/dist/element-resize-detector.js';
+
 // ----------------------------------------------------------------------------
 // Standard rendering code setup
 // ----------------------------------------------------------------------------
 
 const renderWindow = vtkRenderWindow.newInstance();
-const renderer = vtkRenderer.newInstance({ background: [0.0, 0.0, 0.0, 0.0] });
+const renderer = vtkRenderer.newInstance({ background: [0.0, 0.0, 0.0] });
+renderer.setBackground([0.0, 0.0, 0.0, 0.0]);
+//renderer.setLayer(0);
 renderWindow.addRenderer(renderer);
 
 // ----------------------------------------------------------------------------

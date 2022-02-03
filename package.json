@@ -12,7 +12,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@kitware/vtk.js": "^20.2.3"
+    "@kitware/vtk.js": "^22.4.0",
+    "element-resize-detector": "^1.2.4"
   },
   "devDependencies": {
     "coveralls": "^3.1.1",
@@ -23,5 +24,5 @@
     "webpack-cli": "^4.9.1",
     "webpack-dev-server": "^4.4.0"
   },
-  "type":"module"
+  "type": "module"
 }
