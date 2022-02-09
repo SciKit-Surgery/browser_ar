@@ -14,8 +14,6 @@ import vtkInteractorStyleTrackballCamera from '@kitware/vtk.js/Interaction/Style
 
 import {coneactor} from './sksAnatomy.js'
 
-//import {elementResizeDetectorMaker} from 'element-resize-detector/dist/element-resize-detector.js';
-
 // ----------------------------------------------------------------------------
 // Standard rendering code setup
 // ----------------------------------------------------------------------------
@@ -23,7 +21,6 @@ import {coneactor} from './sksAnatomy.js'
 const renderWindow = vtkRenderWindow.newInstance();
 const renderer = vtkRenderer.newInstance({ background: [0.0, 0.0, 0.0] });
 renderer.setBackground([0.0, 0.0, 0.0, 0.0]);
-//renderer.setLayer(0);
 renderWindow.addRenderer(renderer);
 
 // ----------------------------------------------------------------------------
@@ -76,6 +73,14 @@ interactor.bindEvents(container);
 
 interactor.setInteractorStyle(vtkInteractorStyleTrackballCamera.newInstance());
 
+window.addEventListener('resize', function(event) {
+	let vid_el = document.getElementById("videoElement")
+	console.log('window resize:', {
+		width: vid_el.clientWidth,
+		height: vid_el.clientHeight
+	});
+
+}, true);
 // ----------------------------------------------------------------------------
 // See if we can get video working
 // ----------------------------------------------------------------------------
