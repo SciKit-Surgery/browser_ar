@@ -2401,7 +2401,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n// ----------------------------------------------------------------------------\n// See if we can get video working\n// ----------------------------------------------------------------------------\n\nconst video = document.getElementById('videoElement');\n\nif (navigator.mediaDevices.getUserMedia) {\n  navigator.mediaDevices.getUserMedia({ video: true })\n    .then(function (stream) {\n      video.srcObject = stream;\n    })\n    .catch(function (err0r) {\n      console.log(\"Something went wrong!\");\n    });\n}\n\n\n//# sourceURL=webpack://browser_ar/./src/video.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n// ----------------------------------------------------------------------------\n// See if we can get video working\n// ----------------------------------------------------------------------------\n\nconst video = document.getElementById('videoElement');\n\nvar constraints = {\n    audio: false,\n    video: {\n        width: { min: 1024, ideal: 1280, max: 1920 },\n        height: { min: 576, ideal: 720, max: 1080 },\n    }\n};\n\nif (navigator.mediaDevices.getUserMedia) {\n  navigator.mediaDevices.getUserMedia(constraints)\n    .then(function (stream) {\n      video.srcObject = stream;\n    })\n    .catch(function (err0r) {\n      console.log(\"Video Capture from Webcam failed.\");\n    });\n}\n\n\n//# sourceURL=webpack://browser_ar/./src/video.js?");
 
 /***/ }),
 
