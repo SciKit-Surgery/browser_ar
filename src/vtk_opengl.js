@@ -73,26 +73,28 @@ interactor.bindEvents(container);
 
 interactor.setInteractorStyle(vtkInteractorStyleTrackballCamera.newInstance());
 
+
+function offset(el) {
+	    var rect = el.getBoundingClientRect(),
+	    scrollLeft = window.pageXOffset || document.documentElement.scrollLeft,
+	    scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+	    return { top: rect.top + scrollTop, left: rect.left + scrollLeft }
+	}
+
 window.addEventListener('resize', function(event) {
-	let vid_el = document.getElementById("videoElement")
+	let vid_el = document.getElementById("videoElement");
+	let vid_divOffset = offset(vid_el);
+	let vtk_divOffset = offset(container);
 	console.log('window resize:', {
-		width: vid_el.clientWidth,
-		height: vid_el.clientHeight
+		vid_width: vid_el.clientWidth,
+		vid_height: vid_el.clientHeight,
+		vid_offset_left: vid_divOffset.left,
+		vid_offset_top: vid_divOffset.top,
+		vtk_width: container.clientWidth,
+		vtk_height: container.clientHeight,
+		vtk_offset_left: vtk_divOffset.left,
+		vtk_offset_top: vtk_divOffset.top,
+		something_else: vid_el.srcObject,
 	});
 
 }, true);
-// ----------------------------------------------------------------------------
-// See if we can get video working
-// ----------------------------------------------------------------------------
-
-const video = document.getElementById('videoElement');
-
-if (navigator.mediaDevices.getUserMedia) {
-  navigator.mediaDevices.getUserMedia({ video: true })
-    .then(function (stream) {
-      video.srcObject = stream;
-    })
-    .catch(function (err0r) {
-      console.log("Something went wrong!");
-    });
-}
